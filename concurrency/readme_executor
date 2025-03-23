@@ -1,0 +1,6 @@
+Q1: What is ExecutorService, and how does it improve thread management?
+Answer:
+    i)  ExecutorService manages a pool of threads efficiently.
+    ii) It helps in reusing threads instead of creating new ones.
+
+Q2: Create a thread pool of 5 fixed threads that process 10 tasks.

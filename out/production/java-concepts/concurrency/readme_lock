@@ -1,0 +1,13 @@
+Q1: What is the difference between ReentrantLock and synchronized?
+Answer:
+    i)  ReentrantLock provides fine-grained control with features like fairness, tryLock, and timedLock.
+    ii) synchronized is a simpler locking mechanism.
+
+Q2: Implement a counter using ReentrantLock.
+
+Q3: Use ReadWriteLock to implement a thread-safe shared resource where multiple readers
+    can read but only one writer can write.
+
+Q4: Implement a scenario where two threads cause a deadlock using synchronized blocks.
+
+Q5: Implement a producer-consumer pattern using BlockingQueue.

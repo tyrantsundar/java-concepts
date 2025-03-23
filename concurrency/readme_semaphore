@@ -1,0 +1,9 @@
+
+Q1: What is a Semaphore, and how is it different from a Mutex?
+Answer:
+    i) . A Semaphore is used to limit the number of threads accessing a resource at the same time.
+    ii). A Mutex allows only one thread at a time, whereas a Semaphore allows multiple threads
+        (up to a defined limit).
+
+Q2: Write a Java program where only 3 threads can access a resource at the same time using a Semaphore.
+

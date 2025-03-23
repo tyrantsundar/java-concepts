@@ -1,0 +1,12 @@
+
+Q1: What is a Mutex? How is it different from a Lock?
+Answer:
+A Mutex (Mutual Exclusion) is a mechanism used to prevent multiple threads
+from accessing a shared resource simultaneously.
+Lock vs. Mutex:
+    1. A Mutex is a type of lock but can only be acquired and released by the same thread.
+    2. A Lock (like ReentrantLock in Java) provides more flexibility, such as try-locking,
+       timed-locking, and fairness policies.
+
+Q2: Implement a simple counter using a Mutex in Java.
+

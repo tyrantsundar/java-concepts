@@ -1,0 +1,12 @@
+Q1: What are the different ways to create a thread in Java?
+Answer:
+    i) Extending Thread class
+    ii) Implementing Runnable interface
+    iii) Using ExecutorService for thread pools
+
+Q2: Write a Java program where two threads print numbers from 1-10 alternately.
+
+Q3 : Create a thread pool where each thread computes the sum of numbers in a
+given range and returns the result.
+
+Q4 : CyclicBarrier with 3 Worker Threads
