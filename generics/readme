@@ -1,0 +1,103 @@
+1. What are Generics in Java?
+Answer:
+Generics in Java allow type safety at compile-time by enabling parameterized types.
+They help avoid ClassCastException and improve code reusability.
+Example:
+List<String> list = new ArrayList<>();
+list.add("Hello");  // Type-safe, only Strings allowed
+String value = list.get(0);  // No need for explicit casting
+
+--------------------------------------------------------------------------------------------------------------
+
+2. Why do we use Generics?
+Answer:
+Generics provide:
+    1. Type Safety – Ensures type correctness at compile time.
+    2. Elimination of Type Casting – Reduces the need for explicit type casting.
+    3. Code Reusability – Generic classes and methods work with different data types.
+
+--------------------------------------------------------------------------------------------------------------
+
+3. Can we use primitive types as type parameters in Generics?
+Answer:
+No, generics only support reference types. However, we can use wrapper classes like Integer,
+Double, Character instead of primitives like int, double, char.
+
+--------------------------------------------------------------------------------------------------------------
+
+4. What is a Generic Method? Provide an example.
+Answer:
+A generic method allows parameters to be of any type.
+
+--------------------------------------------------------------------------------------------------------------
+
+5. What are bounded type parameters in Generics? Provide an example.
+Answer:
+Bounded type parameters restrict the type to be a subclass (or itself) of a
+specific class/interface using extends.
+
+--------------------------------------------------------------------------------------------------------------
+
+6. What is the difference between <?>, <? extends T>, and <? super T>?
+Answer:
+<?> – Unbounded wildcard: Accepts any type.
+<? extends T> – Upper-bounded wildcard: Accepts T or its subclasses.
+<? super T> – Lower-bounded wildcard: Accepts T or its superclasses.
+
+Example :
+public void printList(List<?> list) { }  // Accepts any type
+public void printList(List<? extends Number> list) { }  // Accepts Number and its subclasses
+public void printList(List<? super Integer> list) { }  // Accepts Integer and its superclasses
+
+--------------------------------------------------------------------------------------------------------------
+
+7. Why are Java Generics implemented using Type Erasure?
+Answer:
+Java Generics use Type Erasure to maintain backward compatibility with older versions (pre-Java 5).
+The compiler removes generic type information and replaces it with Object (or an appropriate upper bound).
+Example:
+List<String> list = new ArrayList<>();
+list.add("Hello");
+
+// After type erasure, it becomes:
+List list = new ArrayList();
+list.add("Hello");
+
+This ensures that Java bytecode remains compatible with pre-generics versions.
+
+--------------------------------------------------------------------------------------------------------------
+
+8. How does Type Erasure affect method overloading?
+Answer:
+Due to type erasure, two methods with different generic types may resolve to the same method signature,
+causing a compilation error.
+Example :
+// Compilation Error: Both methods have the same erasure
+    public void printList(List<String> list) { }
+    public void printList(List<Integer> list) { }
+After type erasure, both methods become:
+    public void printList(List list) { }
+    public void printList(List list) { }  // Conflict
+Solution: Use different method names or generic methods.
+
+--------------------------------------------------------------------------------------------------------------
+
+9. What is PECS (Producer Extends, Consumer Super) in Java Generics?
+Answer:
+PECS is a rule for generics usage:
+    1. "Producer extends" (<? extends T>) → If you’re only reading from a collection, use extends.
+    2. "Consumer super" (<? super T>) → If you’re only writing to a collection, use super.
+Example :
+    List<? extends Number> numbers = new ArrayList<Integer>(); // Producer
+    List<? super Integer> numbers2 = new ArrayList<Number>();  // Consumer
+
+--------------------------------------------------------------------------------------------------------------
+
+10. How would you design a Type-Safe Generic Cache System?
+Answer:
+A cache should store objects while ensuring type safety using Generics.
+
+--------------------------------------------------------------------------------------------------------------
+
+11. How would you implement a Generic LinkedList in Java?
+
