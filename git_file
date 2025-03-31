@@ -3,8 +3,10 @@
     -> To move into the working directory
 3. git status
     -> To verify our changes track
+4. git pull origin master
+    -> To pull the latest changes from remote
 4. git add .
     -> To add our changes into staging
 5. git commit -m "Bharathi changes -> 31/03/2025"
     -> To commit changes
-6.
+6. git push origin master
