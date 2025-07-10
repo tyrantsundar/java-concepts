@@ -12,10 +12,10 @@ public class GeeksForGeeks_2025 {
     public static void main(String[] args) {
 
         //Stream geneartion
-        geneateStream();
+//        geneateStream();
 
         //Collect elements in map
-        collectElementInMap();
+//        collectElementInMap();
 //
 ////        21. How to find duplicate elements in a Stream in Java?
 //        findDuplicateElems(List.of(2,3,4,3,4,5,7,8,1,2));
