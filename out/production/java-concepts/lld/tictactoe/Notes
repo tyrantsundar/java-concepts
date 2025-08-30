@@ -1,0 +1,63 @@
+Design TicToc LLD interview
+    1. sizeof board n*n
+    2. no of players n-I
+    3 Each player can choose their own symbol
+    4 who will make the first move random
+    5. FInal state of the game
+    6. How winner is decided Row/COl/Diagonal/Corner
+    7. Undo Redo
+
+Entities Planned
+    1. Game
+    2. Board
+    3. Cell
+    4. Player
+    5. Symbol
+    6. Winning Strategy Enum (Row, Col, Diagonal, Corner)
+    7. State Enum (Inprogress, Won, Draw, NotStarted)
+    8. Move
+
+
+Class Diagram Fields
+
+Game
+    * Board board
+    * List<Player> players
+    * Player winner
+    * State state
+    * int currentTurn
+    * Stack<Move> moves
+    * Stack<Move> redoMoves
+    * List<WinningStrategy> strategies
+
+Board
+    * int size
+    * Cell[][] cells
+
+Cell
+    * int row
+    * int col
+    * Symbol symbol
+
+Player
+    * String name
+    * Symbol symbol
+
+Symbol
+    * char ch
+    * String colour
+
+Move
+    * int row
+    * int col
+    * Player player
+
+WinningStrategy (interface)
+    * boolean check(Board board, Player player, Move lastMove)
+
+State (enum)
+    * NOT_STARTED
+    * IN_PROGRESS
+    * WON
+    * DRAW
+

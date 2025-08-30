@@ -11,3 +11,7 @@ Q3: Use ReadWriteLock to implement a thread-safe shared resource where multiple 
 Q4: Implement a scenario where two threads cause a deadlock using synchronized blocks.
 
 Q5: Implement a producer-consumer pattern using BlockingQueue.
+
+
+StudyMaterial :
+https://medium.com/@amitvsolutions/javas-synchronization-toolkit-the-locking-mechanism-882fbbe57921
