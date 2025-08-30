@@ -1,0 +1,83 @@
+Requirement :
+
+1. Entry gates exit gates operated by operator
+2. multiple floors can be there
+3. multiple slots in each floor
+4. Parking lot floor slot can support diff typeof vehicles
+5. A ticket is generated at the entry gate
+6. Slot assignment is done at the time of ticket generation
+7. At the exit fees will be calculated
+8. Bill will be generated with all the necessary details customer to do payment
+9. diff payment methods (Cash, UPI, card)
+
+Entities :
+1. Gate
+2. Operator
+3. ParkingLot
+4. ParkingFloor
+5. ParkingSlot
+6. Vehicle
+7. Ticket
+8. SlotAllotment (interfaces) (Random, Nearest, Farthest)
+9. FeeCaluculator(interfaces) (Time,  SpecialTime)
+10.  Bill
+11. Payment
+12. PaymentMode
+13. ParkingLotStatus
+14. ParkingFloorStatus
+15. ParkingSlotStatus
+16. VehicleType
+17. GateType
+18. PatymentStatus
+
+Schema Design
+
+Gate:
+1. String gateNo
+2. GateType type
+3. Operator operator
+
+Operator :
+1. String name
+
+ParkingLot:
+1. String name;
+2. List<ParkingFloor> floors
+3. List<VehicleType> allowedVehicles
+4. List<Gate> euntrygates;
+5. List<Gate> exitGates;
+6. SlotAllotment allotmentStrategy
+7. FeeCalculator feeCalculator
+8. ParkingLotStatus status
+
+ParkingFloor:
+1. String name;
+2. List<ParkingSlot> slots;
+3.  ParkingFloorStatus status
+
+ParkingSlot:
+1. String name;
+2. List<VehicleType> allowedType;
+3. ParkingSlotStatus status;
+
+Vehicle :
+1. String regNo;
+2. vehicleType type;
+
+Ticket :
+1. Vehicle vehicle;
+2. Date entryTime;
+3. Gate entryGate;
+4. ParkingSlot slot
+
+Bill:
+1. Ticket ticket
+2. Date exitDate;
+3. Gate exitGate;
+4. Payment payment;
+5. Double billAmount;
+
+Payment:
+1. PaymentMode mode;
+2. Double amount;
+3. PaymentStatus status;

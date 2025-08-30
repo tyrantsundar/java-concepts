@@ -1,0 +1,68 @@
++--------------------+              +-------------------+
+|      ParkingLot    |<>----------->|   ParkingFloor    |
++--------------------+              +-------------------+
+| - name: String     |              | - name: String    |
+| - floors: List<PF> |              | - slots: List<PS> |
+| - allowedVehicles  |              | - status: FloorSt |
+| - entryGates: List |              +-------------------+
+| - exitGates: List  |
+| - allotmentStrategy|<>----------+
+| - feeCalculator    |<>--------+ |
+| - status: LotStatus|          | |
++--------------------+          | |
+                               | |
+                               v v
+                        +-------------------+
+                        |   ParkingSlot     |
+                        +-------------------+
+                        | - name: String    |
+                        | - allowedTypes:[] |
+                        | - status: SlotSt  |
+                        +-------------------+
+
++------------+      +------------+
+|   Gate     |<>--->|  Operator  |
++------------+      +------------+
+| - gateNo   |      | - name     |
+| - type     |      +------------+
+| - operator |
++------------+
+
++-------------------+            +------------------+
+|      Ticket       |<>--------->|     Vehicle      |
++-------------------+            +------------------+
+| - entryTime: Date |            | - regNo: String  |
+| - entryGate: Gate |            | - type: VehType  |
+| - assignedSlot:PS |
++-------------------+
+
++-------------------+            +-------------------+
+|       Bill        |<>--------->|     Payment       |
++-------------------+            +-------------------+
+| - exitTime: Date  |            | - mode: PayMode   |
+| - exitGate: Gate  |            | - amount: Double  |
+| - ticket: Ticket  |            | - status: PayStat |
+| - billAmount: Dbl |            +-------------------+
++-------------------+
+
++-------------------+
+|  SlotAllotment    |<<interface>>
++-------------------+
+| +assignSlot():PS  |
++-------------------+
+      ^        ^
+      |        |
++-----------+  +------------+
+| Random    |  | Nearest    |
++-----------+  +------------+
+
++-------------------+
+|  FeeCalculator    |<<interface>>
++-------------------+
+| +calculateFee():D |
++-------------------+
+      ^
+      |
++-------------+   +----------------+
+| TimeBased   |   | SpecialTime    |
++-------------+   +----------------+
